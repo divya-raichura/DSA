@@ -281,7 +281,6 @@ public class Questions {
         return isPalindrome(head);
     }
 
-
     private boolean isPalindrome(ListNode head) {
         if (head == null || head.next == null) return true;
 
@@ -299,7 +298,7 @@ public class Questions {
     }
 
     // q 14(reorder)
-    // neetcode or leetcode
+    // neetcode or leetcode (sol 3)
     // or below (sol1)
     // or my below(sol2) from github
     public void reorderList(ListNode head) {
@@ -364,6 +363,33 @@ public class Questions {
 
             head1 = l1;
             head2 = l2;
+        }
+    }
+
+    public void reorderList3(ListNode head) {
+        if (head == null) {
+            return;
+        }
+
+        // Find the middle node
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        // Reverse the second half
+        ListNode head2 = reverseIterative(slow.next);
+        slow.next = null;
+
+        // Link the two halves together
+        while (head != null && head2 != null) {
+            ListNode tmp1 = head.next;
+            ListNode tmp2 = head2.next;
+            head2.next = head.next;
+            head.next = head2;
+            head = tmp1;
+            head2 = tmp2;
         }
     }
 
