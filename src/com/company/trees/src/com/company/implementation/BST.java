@@ -1,4 +1,4 @@
-package com.company;
+package com.company.implementation;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -100,7 +100,6 @@ public class BST {
             return search(val, node.left);
         }
     }
-
 
     public boolean isBst() {
         /*
