@@ -175,7 +175,7 @@ public class AVL {
     }
 
     // Removes a value from the AVL tree.
-    private Node remove(Node node, int elem) {
+    private Node remove(Node node, int elem)  {
         if (node == null) return null;
 
         // Dig into left subtree, the value we're looking
