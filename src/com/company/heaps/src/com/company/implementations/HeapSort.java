@@ -2,6 +2,7 @@ package com.company.implementations;
 
 public class HeapSort {
 
+    // max heap for sorted list
     public void heapsort(int[] ar) {
         if (ar == null) return;
         int n = ar.length;

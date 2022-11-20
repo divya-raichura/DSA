@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Integer[] arr1 = {5, 3, 16, 78, 221};
+        Integer[] arr1 = {10, 5};
 //        int[] arr2 = arr1;
 
 //        arr1 = null;

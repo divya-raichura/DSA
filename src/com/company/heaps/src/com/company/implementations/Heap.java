@@ -16,6 +16,7 @@ public class Heap<T extends Comparable<T>> {
     }
 
 //    Construct a priority queue using heapify in O(n) time
+//    https://www.youtube.com/watch?v=VFLNBh0bK2A&list=PL-Jc9J83PIiHq5rMZasunIR19QG3E-PAA&index=22&ab_channel=Pepcoding
     public Heap(T[] arr) {
         this(arr.length);
         int arrLen = arr.length;
