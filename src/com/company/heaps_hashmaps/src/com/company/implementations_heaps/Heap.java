@@ -1,4 +1,4 @@
-package com.company.implementations;
+package com.company.implementations_heaps;
 
 import java.util.ArrayList;
 import java.util.List;

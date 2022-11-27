@@ -4,10 +4,10 @@ public class ImportantQuestions {
     public static void main(String[] args) {
         /*
          * maximum path sum
-         * is same tree
          * zigzag traversal
          * Count Good Nodes in Binary Tree
          * invert bt
+         * validate bst
          * */
     }
 

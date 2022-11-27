@@ -1,8 +1,7 @@
 package com.company;
 
-import com.company.implementations.Heap;
+import com.company.implementations_heaps.Heap;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
