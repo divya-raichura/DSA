@@ -8,21 +8,21 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        Integer[] arr1 = {10, 5};
-//        int[] arr2 = arr1;
+        Integer[] arr1 = {10, 12, 25, 5};
+//
+//        Heap<Integer> heap = new Heap<Integer>(arr1);
+//        heap.display();
+//        List<Integer> list = heap.heapsort();
+//        System.out.println(list);
+//        heap.add(100);
+//        heap.add(2);
+//        heap.display();
+//        boolean ans = heap.isMinHeap(0);
+//        System.out.println(ans);
 
-//        arr1 = null;
-//        System.out.println(Arrays.toString(arr1));
-//        System.out.println(Arrays.toString(arr2));
-
-
-        Heap<Integer> heap = new Heap<Integer>(arr1);
-        List<Integer> list = heap.heapsort();
-        System.out.println(list);
-        heap.add(100);
-        heap.add(2);
-        heap.display();
-        boolean ans = heap.isMinHeap(0);
-        System.out.println(ans);
+        int n = 16;
+        System.out.println(Integer.highestOneBit(n));
+        System.out.println(Integer.highestOneBit(n) << 1);
+        System.out.println(16 >> 1);
     }
 }

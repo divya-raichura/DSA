@@ -188,7 +188,8 @@ public class SeparateChaining<K, V> {
 
     // Resizes the internal table holding buckets of entries
     private void resizeTable() {
-
+        System.out.println("resize");
+        System.out.println(size());
         capacity *= 2;
         threshold = (int) (capacity * maxLoadFactor);
 
@@ -243,5 +244,16 @@ public class SeparateChaining<K, V> {
         }
         sb.append("}");
         return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        SeparateChaining<Integer, Integer> map = new SeparateChaining<>();
+        map.put(1, 11);
+        map.put(2, 12);
+        map.put(3, 13);
+        System.out.println(map.size());
+        System.out.println(map);
+        //        map.put(4, 14);
+//        map.put(5, 15);
     }
 }

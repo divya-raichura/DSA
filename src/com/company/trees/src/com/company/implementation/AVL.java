@@ -125,6 +125,32 @@ public class AVL {
         return node;
     }
 
+    public static void main(String[] args) {
+        AVL avl = new AVL();
+        avl.insert(10);
+        avl.insert(23);
+        avl.insert(2);
+        avl.insert(3);
+        avl.insert(14);
+        System.out.println("inorder display :- ");
+        avl.display();
+        avl.remove(2);
+        System.out.println();
+        avl.display();
+    }
+
+    public void display(){
+        display(root);
+    }
+
+    private void display(Node node) {
+        if(node == null) return;
+
+        display(node.left);
+        System.out.print(node.value + " ");
+        display(node.right);
+    }
+
     private Node leftLeftCase(Node node) {
         return rightRotation(node);
     }

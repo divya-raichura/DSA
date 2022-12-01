@@ -314,36 +314,22 @@ public class BST {
 
     public static void main(String[] args) {
         BST bst = new BST();
-//        bst.insert(10);
-//        bst.insert(-11);
-//        bst.insert(12);
-//        bst.insert(13);
-//        bst.insert(3);
-//        bst.insert(4);
-//        bst.insert(2);
-//        bst.insert(1);
-//        System.out.println(bst.getMax());
-//        System.out.println(bst.search(-1));
-//        System.out.println(bst.getMaxRec());
-//        System.out.println(bst.getHeight());
-//        System.out.println("bfs :-");
-//        bst.bfs();
-//        bst.dfs();
-//        bst.delete(10);bst.bfs();
-//        System.out.println(bst.minValue());
 
-        // to test height
         bst.insert(20);
         bst.insert(10);
         bst.insert(30);
+        bst.insert(34);
+        bst.insert(62);
         bst.insert(40);
         bst.insert(25);
-        System.out.println("bfs:- ");
-        bst.bfs();
         bst.dfs();
         System.out.println("height:- ");
         int height = bst.getHeight();
         System.out.println(height);
+        int s = bst.getSuccessor(25);
+        System.out.println(s);
+        bst.delete(24);
+        bst.dfs();
     }
 
     private static class  Node {
