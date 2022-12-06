@@ -9,6 +9,7 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         Integer[] arr1 = {10, 12, 25, 5};
+        String s = "abc";
 //
 //        Heap<Integer> heap = new Heap<Integer>(arr1);
 //        heap.display();
@@ -24,5 +25,6 @@ public class Main {
         System.out.println(Integer.highestOneBit(n));
         System.out.println(Integer.highestOneBit(n) << 1);
         System.out.println(16 >> 1);
+        System.out.println(s.hashCode());
     }
 }
