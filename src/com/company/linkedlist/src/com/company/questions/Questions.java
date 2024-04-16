@@ -291,6 +291,54 @@ public class Questions {
         return dummy.next;
     }
 
+
+    // second method
+    public ListNode reverseBetween(ListNode head, int left, int right) {
+        if (head == null || head.next == null) return head;
+
+        ListNode dummy = new ListNode(0, head);
+        ListNode t = dummy;
+        ListNode t1 = head;
+        ListNode t2 = head;
+
+        for (int i = 0; i < right - 1; i++) {
+            if (i < left - 1) {
+                t1 = t1.next;
+                t = t.next;
+            }
+            t2 = t2.next;
+        }
+
+        ListNode r = t2.next;
+        t2.next = null;
+
+        ListNode reversed = reverse(t1);
+
+        t.next = reversed;
+        t1.next = r;
+
+        return dummy.next;
+    }
+
+    public ListNode reverse(ListNode node) {
+        if (node == null || node.next == null) return node;
+
+        ListNode prev = null;
+        ListNode present = node;
+        ListNode future = node.next;
+
+        while (present != null) {
+            present.next = prev;
+            prev = present;
+            present = future;
+            if (future != null) {
+                future = future.next;
+            }
+        }
+
+        return prev;
+    }
+
     // q 13
     public boolean isPalindrome() {
         return isPalindrome(head);
