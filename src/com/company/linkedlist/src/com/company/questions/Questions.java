@@ -232,6 +232,21 @@ public class Questions {
         return reverseList(future, head);
     }
 
+    // q 11 second method
+    public ListNode reverseList(ListNode head) {
+        return reverse(null, head);
+    }
+
+    public ListNode reverse(ListNode prev, ListNode curr) {
+        if (curr == null) {
+            return prev;
+        }
+        
+        ListNode ans = reverse(curr, curr.next);
+        curr.next = prev;
+        return ans;
+    }
+
     // q 12
 //    https://www.youtube.com/watch?v=RF_M9tX4Eag&t=517s
 //    my GitHub
