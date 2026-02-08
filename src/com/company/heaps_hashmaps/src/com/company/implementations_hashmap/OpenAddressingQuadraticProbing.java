@@ -40,6 +40,13 @@ public class OpenAddressingQuadraticProbing<K, V> {
         this.capacity = Math.max(DEFAULT_CAPACITY, nextPow2(capacity));
         threshold = (int) (this.capacity * loadFactor);
 
+//        https://claude.ai/chat/b2d92f8c-3a08-46f6-91af-28dd788e6174
+        /*
+        * In Java, you cannot instantiate an array of a generic type parameter directly using the syntax
+        * K keys = new K[this.capacity];
+        * because the Java compiler needs to know the specific type at compile-time to allocate the correct
+        *   amount of memory and perform necessary type checks.
+        * */
         keys = (K[]) new Object[this.capacity];
         values = (V[]) new Object[this.capacity];
     }

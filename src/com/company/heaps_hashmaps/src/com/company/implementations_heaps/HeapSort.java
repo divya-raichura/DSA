@@ -2,7 +2,7 @@ package com.company.implementations_heaps;
 
 public class HeapSort {
 
-    // max heap for sorted list
+    // MAX HEAP
     public void heapsort(int[] ar) {
         if (ar == null) return;
         int n = ar.length;
@@ -15,6 +15,10 @@ public class HeapSort {
         // Sorting bit O(nlogn)
         for (int i = n - 1; i >= 0; i--) { // note the for loop
             // and the function call to sink
+            // i selects last element index in for loop
+            // and in function call it sends arr length as that index
+            // which means one length is reduced, so sink won't touch last element
+            // so last element stays largest
             swap(ar, 0, i);
             sink(ar, i, 0);
         }
@@ -44,16 +48,5 @@ public class HeapSort {
         int tmp = ar[i];
         ar[i] = ar[j];
         ar[j] = tmp;
-    }
-
-    /* TESTING */
-
-    public static void main(String[] args) {
-        HeapSort sorter = new HeapSort();
-        int[] array = {10};
-        sorter.heapsort(array);
-        // Prints:
-        // [-13, 2, 3, 4, 4, 6, 8, 10]
-        System.out.println(java.util.Arrays.toString(array));
     }
 }

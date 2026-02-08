@@ -3,13 +3,15 @@ package com.company.implementation;
 public class AVL {
 
     class Node {
-        public int bf;
+        public int bf; // new node created = bf will be 0 by default
+        // because r-l = -1-(-1) = 0 so it's correct by default
 
         // The value/data contained within the node.
         public int value;
 
         // The height of this node in the tree.
-        public int height;
+        public int height; // new node created = height will be 0 by default
+        // because 1 + max(l,r) = 1 + (-1) = 0 which is correct by default
 
         // The left and the right children of this node.
         public Node left, right;
@@ -125,32 +127,6 @@ public class AVL {
         return node;
     }
 
-    public static void main(String[] args) {
-        AVL avl = new AVL();
-        avl.insert(10);
-        avl.insert(23);
-        avl.insert(2);
-        avl.insert(3);
-        avl.insert(14);
-        System.out.println("inorder display :- ");
-        avl.display();
-        avl.remove(2);
-        System.out.println();
-        avl.display();
-    }
-
-    public void display(){
-        display(root);
-    }
-
-    private void display(Node node) {
-        if(node == null) return;
-
-        display(node.left);
-        System.out.print(node.value + " ");
-        display(node.right);
-    }
-
     private Node leftLeftCase(Node node) {
         return rightRotation(node);
     }
@@ -175,6 +151,9 @@ public class AVL {
         newParent.right = node;
         update(node); // vv imp to not update new parent first, as values of new parent depends on childrens
         // and node is one of the childrens
+        // because, height depends on the no of edges below the node, so if there are changes in edges
+        // above the node, it won't affect height/bf of nodes below
+        // but if edges change below the node, then it will affect height/bf of the node
         update(newParent);
         return newParent;
     }
@@ -189,6 +168,7 @@ public class AVL {
     }
 
     // Remove a value from this binary tree if it exists, O(log(n))
+
     public boolean remove(int elem) {
 
         if (contains(root, elem)) {
@@ -199,8 +179,8 @@ public class AVL {
 
         return false;
     }
-
     // Removes a value from the AVL tree.
+
     private Node remove(Node node, int elem)  {
         if (node == null) return null;
 
@@ -266,17 +246,43 @@ public class AVL {
         // Re-balance tree.
         return balance(node);
     }
-
     // Helper method to find the rightmost node (which has the largest value)
+
     private int findMax(Node node) {
         while (node.right != null) node = node.right;
         return node.value;
     }
-
     // Helper method to find the leftmost node (which has the smallest value)
+
     private int findMin(Node node) {
         while (node.left != null) node = node.left;
         return node.value;
+    }
+
+    public void display(){
+        display(root);
+    }
+
+    private void display(Node node) {
+        if(node == null) return;
+
+        display(node.left);
+        System.out.print(node.value + " ");
+        display(node.right);
+    }
+
+    public static void main(String[] args) {
+        AVL avl = new AVL();
+        avl.insert(10);
+        avl.insert(23);
+        avl.insert(2);
+        avl.insert(3);
+        avl.insert(14);
+        System.out.println("inorder display :- ");
+        avl.display();
+        avl.remove(2);
+        System.out.println();
+        avl.display();
     }
 
 }

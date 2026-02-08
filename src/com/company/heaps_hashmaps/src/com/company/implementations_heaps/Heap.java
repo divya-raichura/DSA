@@ -58,7 +58,7 @@ public class Heap<T extends Comparable<T>> {
         heap.add(elem);
 
         int indexOfLastElem = size() - 1;
-        swimRec(indexOfLastElem);
+        swimIter(indexOfLastElem);
     }
 
     // Perform bottom up node swim, O(log(n))

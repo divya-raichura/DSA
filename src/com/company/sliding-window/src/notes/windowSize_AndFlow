@@ -1,0 +1,59 @@
+bruteforce before coming up with sliding window solution:
+
+
+2 for loops; to divide array into substrings of window size
+that is,
+loop through the array, for each iteration, loop through the window size (substring)
+
+-------------------------------------
+about pointers:
+
+i is used to remove elements to make window size k again
+j is used to add new elements
+as we put new j into ans, we remove from i
+---------------------------------------
+1) used when doing with pointers and while loop
+
+j - i + 1
+
+2) for loop method, without pointers
+
+currentSum = currentSum - arr[i - k] + arr[i];
+
+0,1,2,3,4,5,6
+so if,
+window size = 3 and i is at 4th index
+so, currentSum = 2,3,4, now, for next iteration when i becomes 5:-
+currentSum = currentSum - arr[5-3] + arr[5]
+--------------------------------------------------------
+NOTE: total windows possible: n - k + 1 (idk if its correct, just take some ex dont use this blindly)
+--------------------------------------------------------
+
+Now flow of all sliding window questions, like, how to slide window and get ans
+
+1) first while loop takes e to k + 1
+2) so, we have skimmed through first window and have first answer, so update the ans
+3) now we enter second while loop
+take e into window, remove s from window (note, e and s still point to these elements, we just
+took element at e into consideration and removed element at s from consideration,
+this made the window size k,
+eg: 0(s), 1, 2, 3(e), 4, 5 => s=0 and e=3 window size =3 (0-1-2)
+above is the situation after 1st while loop
+now, in 2nd while loop, we take 3 and remove 0, so window size is 3 => 1-2-3
+now we update answer and increment s and e => 1(s) and 4(e)
+continue this till e can be taken
+think of last iteration...
+0,1,2(s),3,4,5(e)
+e < n so enter loop
+take 5 remove 2 -> 3-4-5
+update ans and increment s and e
+so now we are out of index so stop
+
+
+
+// in ending, he explained the flow, if above method (2 loop 2 pointer) is not clear
+watch given below method of his, (1 loop 2 pointer) which is easier
+https://www.youtube.com/watch?v=uUXXEgK2Jh8&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=4
+
+after 3-4min:
+https://www.youtube.com/watch?v=xFJXtB5vSmM&list=PL_z_8CaSLPWeM8BDJmIYDaoQ5zuwyxnfj&index=7

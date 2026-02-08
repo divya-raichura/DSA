@@ -17,9 +17,8 @@ public class BST {
         this.root = new Node(val);
     }
 
-    public boolean insert(int val) {
+    public void insert(int val) {
         this.root = insert(val, this.root);
-        return true;
     }
 
     private Node insert(int val, Node node) {
@@ -115,6 +114,7 @@ public class BST {
         return true;
     }
 
+    // 1)
     private boolean isBst1(Node node) {
         if (node == null) return true;
 
@@ -131,6 +131,13 @@ public class BST {
         return node.val > val && isSubtreeLesser(node.left, val) && isSubtreeLesser(node.right, val);
     }
 
+    // 2)
+    public boolean isBst2(Node node) {
+        if (node == null) return true;
+
+        return isBstRange(node, Integer.MIN_VALUE, Integer.MAX_VALUE);
+    }
+
     private boolean isBstRange(Node node, int min, int max) {
         if(node == null) return true;
 
@@ -138,6 +145,67 @@ public class BST {
         // nodeVal > min && nodeVal < max are constant time, in method 1, those func were inefficient
         return (nodeVal > min && nodeVal < max && isBstRange(node.left, min, nodeVal) && isBstRange(node.right, nodeVal, max));
     }
+
+    // 3) ans by google ai but also there is a leetcode solution: https://leetcode.com/problems/validate-binary-search-tree/solutions/32112/learn-one-iterative-inorder-traversal-apply-it-to-multiple-tree-questions-java-solution/
+//    public class CheckIfBST {
+//
+//        public static boolean isBST(Node root) {
+//            if (root == null) {
+//                return true;
+//            }
+//
+//            // Keep track of the previously visited node.
+//            Node prev = null;
+//
+//            // Perform inorder traversal.
+//            Stack<Node> stack = new Stack<>();
+//            Node curr = root;
+//            while (curr != null || !stack.isEmpty()) {
+//                while (curr != null) {
+//                    stack.push(curr);
+//                    curr = curr.left;
+//                }
+//
+//                curr = stack.pop();
+//
+//                // If the current node's value is less than the previous node's value,
+//                // then the tree is not a BST.
+//                if (prev != null && curr.data < prev.data) {
+//                    return false;
+//                }
+//
+//                prev = curr;
+//                curr = curr.right;
+//            }
+//
+//            // If we reach here, then the tree is a BST.
+//            return true;
+//        }
+//
+//        public static void main(String[] args) {
+//            Node root = new Node(10);
+//            root.left = new Node(5);
+//            root.right = new Node(15);
+//            root.left.left = new Node(2);
+//            root.left.right = new Node(7);
+//            root.right.left = new Node(12);
+//            root.right.right = new Node(20);
+//
+//            System.out.println(isBST(root)); // true
+//        }
+//    }
+//
+//    class Node {
+//        int data;
+//        Node left;
+//        Node right;
+//
+//        public Node(int data) {
+//            this.data = data;
+//            this.left = null;
+//            this.right = null;
+//        }
+//    }
 
     public void dfs() {
         System.out.println("preorder");
